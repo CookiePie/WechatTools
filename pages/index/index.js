@@ -6,6 +6,8 @@ Page({
         realname: "",
         avatar_url: "",
         hasLogin: false,
+        userid: "",
+        userpass: ""
     },
     onLoad() {
         var that = this;
