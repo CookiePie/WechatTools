@@ -1,0 +1,39 @@
+/**index.wxss**/
+.userProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+}
+
+.avatar-image{
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+.input-container{
+    padding-top: 50rpx;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.input-label{
+    width: 600rpx;
+    text-align: center;
+}
+
+.input-word{
+    width: 600rpx;
+    text-align: center;
+}
+
+.intro-text{
+    width: 600rpx;
+    align-self: center;
+    color: #aaa;
+    font-size: small;
+}
