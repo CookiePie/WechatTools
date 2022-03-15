@@ -1,22 +1,24 @@
-<view>
-  <view class="userProfile">
+<view class="main">
+
+  <view wx:if="{{avatarUrl}}" class="userProfile">
     <view class="avatar-image">
-      <open-data type="userAvatarUrl"></open-data>
+      <image class="avatar-i" src="{{avatarUrl}}"></image>
     </view>
     <view class="avatar-nickname">
-      <open-data type="userNickName"></open-data>
+      <text>{{nickname}}</text>
     </view>
   </view>
 
-  <!--
-  <button bindtap="getUserProfile"></button>
-  -->
-  <form catchsubmit="formSubmit" catchreset="formReset">
-    <view wx:if="{{!hasLogin}}"class="input-container">
+  <view wx:if="{{!avatarUrl}}">
+    <button class="profileButton" bindtap="getUserProfile">首次登陆点击</button>
+  </view>
+
+  <form catchsubmit="formSubmit" >
+    <view wx:if="{{hasLogin=='0'}}" class="input-container">
 
       <view class="intro-text">
         <text>
-          第一次使用请输入学号、密码，后续将自动登录
+          第一次使用请输入学号、密码，后续将自动登录，首次登陆耗时约20s
         </text>
       </view>
 
@@ -24,6 +26,7 @@
         <view class="input-label">
           <text>请输入学号：</text>
         </view>
+        <view style="height: 20rpx;"></view>
         <view class="input-word">
           <input name="userid" type="number" />
         </view>
@@ -33,17 +36,60 @@
         <view class="input-label">
           <text>请输入密码：</text>
         </view>
+        <view style="height: 20rpx;"></view>
         <view class="input-word">
           <input type="text" name="userpass" password="True"/>
         </view>
-        {{userid}}
       </view>
 
+      <view wx:if="{{status!='**报备模式待选择**'}}">
+      <text style="color: rgb(187, 71, 71);font-weight: bold;">
+      {{status}}
+      </text>
+      </view>
+      
       <view class="btn-area">
-        <button style="margin: 30rpx 0;width: 200rpx;height: 100rpx" type="primary" plain="True" formType="submit">提交</button>
-        <button style="margin: 30rpx 0;width: 200rpx;height: 100rpx" formType="reset">重置</button>
+        <button style="border-radius: 30rpx; margin: 0rpx 0;width: 200rpx;height: 100rpx" type="primary" plain="True" formType="submit">提交</button>
+        <button style="border-radius: 30rpx;margin: 30rpx 0;width: 200rpx;height: 100rpx" formType="reset">重置</button>
       </view>
 
     </view>
-  </form> 
+  </form>
+
+  <view wx:if="{{hasLogin=='1'}}" class="baobei">
+    <text class="type-intro">
+      选择模式即开始报备
+
+      默认参数：
+      出门时间-5分钟前
+      返校时间-2小时后
+      所在校区-光华校区
+
+      模式一：南门-步行-购买生活物资
+      模式二：北二门-步行-拿快递
+      模式三：柳林-地铁-找导师
+      模式四：随机组合<text style="color: rgb(158, 184, 14);">({{random_ex.r2}}-{{random_ex.r3}}-{{random_ex.r1}})</text>
+    </text>
+
+    <view style="display: flex; align-items: center;justify-content: center;height: 100rpx;padding-bottom: 20rpx;">
+      <view style="color: {{status_color}};">
+      {{status}}
+      </view>
+    </view>
+
+    <view class="button-type-container">
+      <button type="primary" plain="True" class="button-type" bindtap="primaryBaobei" data-user_type="1">模式一</button>
+      <button type="primary" plain="True" class="button-type" bindtap="primaryBaobei" data-user_type="2">模式二</button>
+      <button type="primary" plain="True" class="button-type" bindtap="primaryBaobei" data-user_type="3">模式三</button>
+      <button type="primary" plain="True" class="button-type" bindtap="primaryBaobei" data-user_type="4">模式四</button>
+      <button class="button-type" bindtap="getRandomEx">切换随机组合</button>
+    </view>
+  </view>
+
+  <view style="text-align:center;margin-top:30rpx;padding-top:30rpx">
+    <text style="text-align: center;font-size: 25rpx">IT'S YOU! {{pokemon_pic.name}}\n</text>
+    <image style="height:50px; width:50px;padding-top: 15rpx;" src="{{pokemon_pic.url}}" ></image>
+  </view>
+  
 </view>
+

@@ -1,4 +1,11 @@
 /**index.wxss**/
+Page{
+    background-image: url("https://www.hi-cpy.xyz:203/tools_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
 .userProfile{
     display: flex;
     flex-direction: column;
@@ -14,33 +21,49 @@
     border-radius: 50%;
 }
 
+.avatar-i{
+    width: 100%;
+    height: 100%;
+}
+
 .input-container{
     display: flex;
     flex-direction: column;
-    align-self: center;
-    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .input-label{
     padding-top: 30rpx;
     width: 600rpx;
     text-align: center;
+    color:rgb(24, 177, 126);
 }
 
 .input-word{
-    padding-top: 20rpx;
-    width: 600rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400rpx;
+    height: 60rpx;
+    color: rgb(24, 177, 126);
     text-align: center;
+    border-style: dotted;
+    border-radius: 20rpx;
+    border-width: 2rpx;
+    border-color:rgb(24, 177, 126);
 }
 
 .intro-text{
     width: 600rpx;
     align-self: center;
-    color: #aaa;
+    color: burlywood;
     font-size: small;
+    padding-bottom: 20rpx;
 }
 
 .btn-area{
+    padding-top: 80rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,5 +71,49 @@
 
 button{
     width: 200rpx;
-    height: 100rpx
+    height: 100rpx;
+    text-align: center;
+    line-height: 70rpx;
+}
+
+.button-type{
+    border-radius: 50rpx;
+    color: rgb(231, 85, 41);
+    border-width: 2rpx;
+    border-color: rgb(207, 79, 29);
+    border-style: dotted;
+    text-align: center;
+    vertical-align: middle;
+    height: 100rpx;
+    line-height: 65rpx;
+}
+
+.button-type-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 600rpx;
+}
+
+.type-intro{
+    font-size: small;
+    padding-bottom: 30rpx;
+    color: burlywood;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.baobei{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileButton{
+    margin-top: 30rpx;
+    color: burlywood;
+    border-color: burlywood;
+    border-radius: 50rpx;
+    border-width: 3rpx;
+    border-style: dotted;
 }
